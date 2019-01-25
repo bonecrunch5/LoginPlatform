@@ -1,6 +1,10 @@
 from tkinter import *
 import os
 
+root = Tk()
+root.title('Prototype')
+root.geometry('500x500+380+140')
+
 
 class Application:
     def __init__(self, master=None):
@@ -21,11 +25,9 @@ class Application:
         self.quartoContainer['pady'] = 50
         self.quartoContainer.pack()
 
-
         self.titulo = Label(self.primeiroContainer, text='Prometheus')
         self.titulo['font'] = ('Harlow Solid Italic', '25')
         self.titulo.pack()
-
 
         self.adminLabel = Label(self.segundoContainer, text='Admin', font=self.fontePadrao)
         self.adminLabel.pack(side=LEFT)
@@ -34,7 +36,6 @@ class Application:
         self.admin['width'] = 29
         self.admin['font'] = self.fontePadrao
         self.admin.pack(side=LEFT)
-
 
         self.passwordLabel = Label(self.terceiroContainer, text='Pass ', font=self.fontePadrao)
         self.passwordLabel.pack(side=LEFT)
@@ -72,15 +73,16 @@ class Application:
         admin = self.admin.get()
         password = self.password.get()
         if admin == 'Prometheus' and password == 'menfire':
+            root.destroy()
             os.system('Interface002.py')
         elif admin == 'Alice' and password == 'alicization':
+            root.destroy()
             os.system('Interface002.py')
+
         else:
             self.mensagem['text'] = 'Entry denied'
 
 
-root = Tk()
-root.title('Prototype')
-root.geometry('500x500+380+140')
+
 Application(root)
 root.mainloop()
