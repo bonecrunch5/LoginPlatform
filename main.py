@@ -46,7 +46,6 @@ class Application:
         self.password['show'] = '*'
         self.password.pack(side=LEFT)
 
-
         self.start = Button(self.quartoContainer)
         self.start['text'] = 'Start'
         self.start['font'] = ('Stencil', '10')
@@ -63,10 +62,8 @@ class Application:
         self.exit.configure(relief=GROOVE)
         self.exit.pack()
 
-
         self.mensagem = Label(self.quartoContainer, text="", font=self.fontePadrao)
         self.mensagem.pack()
-
 
     # Método verificar password
     def verificaPassword(self):
@@ -81,7 +78,6 @@ class Application:
 
         else:
             self.mensagem['text'] = 'Entry denied'
-
 
 
 Application(root)

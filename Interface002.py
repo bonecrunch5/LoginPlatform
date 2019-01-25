@@ -20,30 +20,50 @@ class Application:
         self.quartoContainer['pady'] = 50
         self.quartoContainer.pack()
 
-
         self.titulo = Label(self.primeiroContainer, text='Welcome Sir')
         self.titulo['font'] = ('Arial', '25')
         self.titulo.pack()
 
-def adminlogin():
-    # Admin login
-    pc = input('Primary Code: ')
-    sc = input('Secondary Code: ')
-    tc = input('Tertiary Code: ')
-    ap = 'menfire' or 'alicization'
-    if pc == '1337':
-        if sc == '0138':
-            if tc == '1975':
-                if ap == 'menfire' or 'alicization':
+        self.primaryCodeAsk = Label(self.segundoContainer, text='Primary Code: ')
+        self.primaryCode = Entry(self.segundoContainer)
+
+        self.primaryCode['width'] = 29
+        self.primaryCode['font'] = self.fontePadrao
+        self.primaryCode.pack(side=LEFT)
+
+        self.secondaryCodeAsk = Label(self.terceiroContainer, text='Secondary Code: ')
+        self.secondaryCode = Entry(self.terceiroContainer)
+
+        self.secondaryCode['width'] = 29
+        self.secondaryCode['font'] = self.fontePadrao
+        self.secondaryCode.pack(side=LEFT)
+
+        self.tertiaryCodeAsk = Label(self.terceiroContainer, text='Tertiary Code: ')
+        self.tertiaryCode = Entry(self.quartoContainer)
+
+        self.tertiaryCode['width'] = 29
+        self.tertiaryCode['font'] = self.fontePadrao
+        self.tertiaryCode.pack(side=LEFT)
+
+        self.adminlogin
+
+    def adminlogin(self):
+        # Admin login
+        pc = self.primaryCode.get()
+        sc = self.secondaryCode()
+        tc = self.tertiaryCode.get()
+
+        # ap = 'menfire' or 'alicization'
+        if pc == '1337':
+            if sc == '0138':
+                if tc == '1975':
                     print('How can I help Sir?')
                 else:
                     print("Code(s) is/are incorrect!")
             else:
-                print("Code(s) is/are incorrect!")
+                print('Code(s) is/are incorrect!')
         else:
             print('Code(s) is/are incorrect!')
-    else:
-        print('Code(s) is/are incorrect!')
 
 
 root = Tk()
